@@ -76,9 +76,10 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    // OnTriggerEnter2D to OnCollisionEnter2D
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Obstacle") && !isGameOver)
+        if (collision.gameObject.CompareTag("Obstacle") && !isGameOver)
         {
             GameOver();
         }
